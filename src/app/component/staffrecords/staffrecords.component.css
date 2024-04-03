@@ -1,0 +1,11 @@
+.mat-card{
+    margin:2%;
+}
+button{
+    margin: 2px;
+    padding-right: 15px;
+}
+.th{
+    background-color: black;
+    color:white;
+}
