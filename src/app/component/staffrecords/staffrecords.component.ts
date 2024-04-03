@@ -33,7 +33,7 @@ export class StaffrecordsComponent implements OnInit {
 
   openPopup(id: any, title: any) {
     this.dialog.open(PopupComponent, {
-      width: "35",
+      width: "40",
       height: '280px',
       enterAnimationDuration: '1000ms',
       exitAnimationDuration: '1000ms',
