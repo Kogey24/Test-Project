@@ -1,8 +1,9 @@
 export interface staffrecords{
-    id:number;
-    name:string;
-    email:string;
-    Year:number;
+    code:string;
+    fullname:string;
+    email:string,
     department:string;
-    date:Date;
+    joiningDate:string;
+    isActive:Boolean;
+    statusname:string;
 }

@@ -24,7 +24,7 @@ export class DataService implements InMemoryDbService {
           name:'Malcom x',
           email:'malconxi@gmail.com',
           Year:'2000',
-          department:'Enineering',
+          department:'Engineering',
           date: new Date(1990,4,14)
         },
         {
@@ -53,6 +53,16 @@ export class DataService implements InMemoryDbService {
         },
         {
           id:6,
+          name:'Silvya Muchiri',
+          email:'Muchiri@gmail.com',
+          Year:'2019',
+          department:'health',
+          date: new Date(1990,6,31)
+        }
+
+      ],
+      User:[
+        {
           name:'Silvya Muchiri',
           email:'Muchiri@gmail.com',
           Year:'2019',

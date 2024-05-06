@@ -3,6 +3,7 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from '../MaterialModule';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 
 
 import { AuthenticationComponent } from './component/authentication/authentication.component';
@@ -13,6 +14,8 @@ import { StaffrecordsComponent } from './component/staffrecords/staffrecords.com
 import { PopupComponent } from './component/popup/popup.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { DataService } from './service/data.service';
+import { RegisterComponent } from './component/register/register.component';
+import { MenuComponent } from './component/menu/menu.component';
 
 
 
@@ -21,7 +24,9 @@ import { DataService } from './service/data.service';
     AppComponent,
     AuthenticationComponent,
     StaffrecordsComponent,
-    PopupComponent
+    PopupComponent,
+    RegisterComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,8 @@ import { DataService } from './service/data.service';
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(DataService)
+    HttpClientInMemoryWebApiModule.forRoot(DataService),
+    ToastrModule.forRoot()
   ],
   providers: [
     provideClientHydration(),

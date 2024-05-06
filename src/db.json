@@ -1,0 +1,19 @@
+{
+    "users": [
+      {  
+        "id": 1,
+        "username":"uhuru",
+        "name":"Uhuru Kenyatta",
+        "password":"1234",
+        "email":"uhuru@gmail.com",
+        "phone":"236647",
+        "role":"customer",
+        "gender":"male",
+        "isactive":"true"
+
+      }
+      
+    ]
+    
+  }
+  

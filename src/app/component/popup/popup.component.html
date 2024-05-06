@@ -3,24 +3,24 @@
     <mat-card-header><h1>{{inputdata.title}}</h1></mat-card-header>
     <mat-card-content>
       <mat-form-field class="mat-50">
-        <mat-label>Name</mat-label>
-        <input matInput form formControlName="name">
+        <mat-label>Full Name</mat-label>
+        <input matInput form formControlName="Fullname">
       </mat-form-field>
       <mat-form-field class="mat-50">
         <mat-label>Email</mat-label>
         <input matInput form formControlName="email">
       </mat-form-field>
       <mat-form-field class="mat-50">
-        <mat-label>Year</mat-label>
-        <input matInput form formControlName="Year">
+        <mat-label>Birth Year</mat-label>
+        <input matInput form formControlName="BirthYear">
       </mat-form-field>
       <mat-form-field class="mat-50">
         <mat-label>Department</mat-label>
         <input matInput form formControlName="department">
       </mat-form-field>
       <mat-form-field class="mat-50">
-        <mat-label>Date of Birth</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="date" />
+        <mat-label>Joining date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="JoiningDate" />
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
         <mat-hint>dd/mm/yyyy</mat-hint>

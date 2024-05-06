@@ -1,8 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { MasterServiceService } from '../../service/master-service.service';
 import { staffrecords } from '../../staffrecords';
+import { MasterService } from '../../service/master.service';
+import { Console } from 'console';
 
 @Component({
   selector: 'app-popup',
@@ -14,7 +15,7 @@ export class PopupComponent implements OnInit{
   editdata!: any;
   inputdata: any;
 
-constructor(private builder:FormBuilder, private ref:MatDialogRef<PopupComponent>,private service: MasterServiceService, @Inject(MAT_DIALOG_DATA) public data: any){}
+constructor(private builder:FormBuilder, private ref:MatDialogRef<PopupComponent>,private service: MasterService, @Inject(MAT_DIALOG_DATA) public data: any){}
 
 
   ngOnInit(): void {
@@ -26,37 +27,39 @@ constructor(private builder:FormBuilder, private ref:MatDialogRef<PopupComponent
   }
 
 recordsform =this.builder.group({
-  name:this.builder.control('',Validators.required),
+  Fullname:this.builder.control('',Validators.required),
   email:this.builder.control('',Validators.required),
-  Year:this.builder.control('',Validators.required),
+  BirthYear:this.builder.control('',Validators.required),
   department:this.builder.control('',Validators.required),
-  date:this.builder.control(new Date(2012,4,20)),
+  JoiningDate:this.builder.control('',Validators.required),
 })
 closepopup(){
 this.ref.close();
 }
 setpopupdata(id: any) {
-  this.service.GetRecord(id).subscribe(item => {
-      this.editdata = item;
-      this.recordsform.setValue({
-        name: this.editdata.name,
-        email: this.editdata.email,
-        Year: this.editdata.Year,
-        department: this.editdata.department,
-        date: this.editdata.date
-      });
-  })
+  // this.service.GetRecord(id).subscribe(item => {
+  //     this.editdata = item;
+  //     this.recordsform.setValue({
+  //       name: this.editdata.name,
+  //       email: this.editdata.email,
+  //       Year: this.editdata.Year,
+  //       department: this.editdata.department,
+  //       date: this.editdata.date
+  //     });
+  // })
 }
 OnSubmit(): void {
+  console.log(this.recordsform.value);
   if (this.inputdata.title === 'Add new record') {
    
     const newRecord: staffrecords = {
-      id: this.recordsform.get('id')?.value || 0,
-      name: this.recordsform.get('name')?.value || '',
+      code: this.recordsform.get('Code')?.value || '',
+      fullname: this.recordsform.get('fullName')?.value || '',
       email: this.recordsform.get('email')?.value || '',
-      Year: this.recordsform.get('year')?.value || 0,
       department: this.recordsform.get('department')?.value || '',
-      date: this.recordsform.get('date')?.value || new Date()
+      joiningDate: this.recordsform.get('Joining Date')?.value || '',
+      isActive: this.recordsform.get('IsActive')?.value || true,
+      statusname:this.recordsform.get('statusname')?.value || '',
     };
 
     this.service.CreateRecord(newRecord).subscribe(

@@ -1,11 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { staffrecords } from '../../staffrecords';
-import { MasterServiceService } from '../../service/master-service.service';
 import { PopupComponent } from '../popup/popup.component';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSort } from '@angular/material/sort';
-import { MatPaginator } from '@angular/material/paginator';
+
 import { MatTableDataSource } from '@angular/material/table';
+import { MasterService } from '../../service/master.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-staffrecords',
@@ -16,25 +17,25 @@ export class StaffrecordsComponent implements OnInit {
 
   staffrecordlist!: staffrecords[];
   datasource: any;
-  displayedColumns: string[] = ["id", "name", "email", "year", "department", "date", "actions"]
+  displayedColumns: string[] = ["id", "name", "email", "department", "joining_date", "IsActive","actions"]
 
 
 
-  @ViewChild(MatPaginator) paginator !: MatPaginator;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
 
 
 
-  constructor(private service: MasterServiceService, private dialog: MatDialog) { }
+  constructor(private service: MasterService, private dialog: MatDialog) { }
   ngOnInit(): void {
     this.loadStaffRecords()
   }
 
   openPopup(id: any, title: any) {
     this.dialog.open(PopupComponent, {
-      width: "40",
-      height: '280px',
+      width: "30",
+      height: '400px',
       enterAnimationDuration: '1000ms',
       exitAnimationDuration: '1000ms',
       data: {
@@ -66,12 +67,17 @@ export class StaffrecordsComponent implements OnInit {
   }
 
   deleteRecord(id: any): void {
-    this.service.DeleteRecord(id).subscribe({
-      next: (res) => {
-        alert('Record deleted successfully');
-      },
-      error: console.log
-    })
+    // this.service.DeleteRecord(id).subscribe({
+    //   next: (res) => {
+    //     alert('Record deleted successfully');
+    //   },
+    //   error: console.log
+    // })
+  }
+
+  filterchange(data:Event){
+    const value =data.target as HTMLInputElement
+    this.datasource.filter=value
   }
 
 }

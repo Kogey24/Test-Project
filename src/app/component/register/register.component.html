@@ -1,0 +1,56 @@
+<form [formGroup]="registrationform" (ngSubmit)="Register()">
+    <mat-card>
+        <mat-card-header>
+            <h1>User Registration</h1>
+        </mat-card-header>
+
+        <mat-card-content>
+            <mat-form-field>
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="username">
+            </mat-form-field>
+            <mat-form-field >
+                <mat-label>Password</mat-label>
+                <input type="password" matInput formControlName="password">
+            </mat-form-field>
+            <!-- <mat-form-field class="mat-50">
+                <mat-label>Confirm Password</mat-label>
+                <input type="password" matInput formControlName="confirmpassword">
+            </mat-form-field> -->
+            <mat-form-field>
+                <mat-label>Full Name</mat-label>
+                <input  matInput formControlName="name">
+            </mat-form-field>
+            <mat-form-field class="mat-50">
+                <mat-label>Email</mat-label>
+                <input  matInput formControlName="email">
+            </mat-form-field>
+            <mat-form-field class="mat-50">
+                <mat-label>Phone</mat-label>
+                <input  matInput formControlName="phone">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Role</mat-label>
+                <mat-select formControlName="role">
+                    <mat-option value="admin">Admin</mat-option>
+                    <mat-option value="technician">Technician</mat-option>
+                    <mat-option value="customer">Customer</mat-option>
+                    <mat-option value="user">User</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="div-50">
+                <mat-radio-group formControlName="gender">
+                    <mat-radio-button color="primary" value="Male">Male</mat-radio-button>
+                    <mat-radio-button value="female">Female</mat-radio-button>
+                    <mat-radio-button value="others">Others</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit">Register</button>
+            <button mat-raised-button color="warn" routerLink="">Back to login</button>
+        </mat-card-actions>
+    </mat-card>
+
+</form>

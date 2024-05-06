@@ -5,7 +5,10 @@ button{
     margin: 2px;
     padding-right: 15px;
 }
-.th{
-    background-color: black;
+th{
+    background-color: black !important;
     color:white;
+}
+tr{
+    padding-left: 3%;
 }
